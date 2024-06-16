@@ -76,19 +76,14 @@
 		0B7BA8252C1B38D400FD2877 /* Obj-c training */ = {
 			isa = PBXGroup;
 			children = (
-				0B7BA8472C1EDDD200FD2877 /* TableView */,
-				0B7BA8262C1B38D400FD2877 /* AppDelegate.h */,
-				0B7BA8272C1B38D500FD2877 /* AppDelegate.m */,
-				0B7BA82C2C1B38D500FD2877 /* ViewController.h */,
-				0B7BA82D2C1B38D500FD2877 /* ViewController.m */,
+				0B7BA8582C1F0BAD00FD2877 /* ViewControllers */,
+				0B7BA8572C1F0B9D00FD2877 /* AppConfig */,
+				0B7BA8562C1F0B9200FD2877 /* DTO */,
+				0B7BA8552C1F0B8400FD2877 /* Extensions */,
 				0B7BA8322C1B38D500FD2877 /* Assets.xcassets */,
 				0B7BA8342C1B38D500FD2877 /* LaunchScreen.storyboard */,
 				0B7BA8372C1B38D500FD2877 /* Info.plist */,
 				0B7BA8382C1B38D500FD2877 /* main.m */,
-				0B7BA83F2C1C956500FD2877 /* UIViewAutoLayout.h */,
-				0B7BA8412C1C958A00FD2877 /* UIViewAutoLayout.m */,
-				0B7BA8432C1DD5D700FD2877 /* ViewColorModel.h */,
-				0B7BA8452C1DD71100FD2877 /* ViewColorModel.m */,
 			);
 			path = "Obj-c training";
 			sourceTree = "<group>";
@@ -114,6 +109,51 @@
 				0B7BA8502C1EF34400FD2877 /* SomeCellValue.m */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		0B7BA8552C1F0B8400FD2877 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA83F2C1C956500FD2877 /* UIViewAutoLayout.h */,
+				0B7BA8412C1C958A00FD2877 /* UIViewAutoLayout.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0B7BA8562C1F0B9200FD2877 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA8432C1DD5D700FD2877 /* ViewColorModel.h */,
+				0B7BA8452C1DD71100FD2877 /* ViewColorModel.m */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		0B7BA8572C1F0B9D00FD2877 /* AppConfig */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA8262C1B38D400FD2877 /* AppDelegate.h */,
+				0B7BA8272C1B38D500FD2877 /* AppDelegate.m */,
+			);
+			path = AppConfig;
+			sourceTree = "<group>";
+		};
+		0B7BA8582C1F0BAD00FD2877 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA8592C1F0BB600FD2877 /* ViewController */,
+				0B7BA8472C1EDDD200FD2877 /* TableView */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0B7BA8592C1F0BB600FD2877 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA82C2C1B38D500FD2877 /* ViewController.h */,
+				0B7BA82D2C1B38D500FD2877 /* ViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
