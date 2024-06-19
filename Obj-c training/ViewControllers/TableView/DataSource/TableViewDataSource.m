@@ -16,7 +16,8 @@
 @end
 
 @implementation TableViewDataSource
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath { 
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+
     MyCell * tableViewCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     Breed * cellData = self.cells[indexPath.item];
     [tableViewCell initWithCellData:cellData onDidTap:self.onCellSelected];

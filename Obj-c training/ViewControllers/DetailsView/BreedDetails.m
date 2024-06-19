@@ -58,17 +58,16 @@
 }
 
 - (void) addSubviews {
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 40; i++) {
         UILabel * label = [[UILabel alloc] init];
         label.text = @"jhahsdkljh saljdh cbljsahbdcsa foo jhasdf jahsd fjklashdfasdhfjhas";
         label.numberOfLines = 10;
         [self.stack addArrangedSubview:label];
     }
-    NSLog(@"%i", self.stack.arrangedSubviews.count);
 }
 
 - (void) setStackView {
-    [self.stack autoLayoutWith:self.scrollView];
+    [self.stack autoLayoutWith:self.view];
     [self.stack setUserInteractionEnabled:false];
     self.stack.axis = UILayoutConstraintAxisVertical;
     self.stack.spacing = 4;
@@ -80,6 +79,9 @@
     ]];
     CGRect contentRect = CGRectZero;
 
+    for (UIView *view in self.view.subviews) {
+        contentRect = CGRectUnion(contentRect, view.frame);
+    }
     for (UIView *view in self.scrollView.subviews) {
         contentRect = CGRectUnion(contentRect, view.frame);
     }

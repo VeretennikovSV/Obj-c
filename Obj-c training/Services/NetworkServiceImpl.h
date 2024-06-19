@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkServiceImpl<Object> : NSObject
 - (void) fetchDataFromUrl:(NSString *)urlString completion:(void (^)(_Nullable Object model))completion;
-- (void) fetchImageFromUrl:(NSString *)urlString completion:(void (^)(UIImage * _Nullable model))completion;
 - (instancetype) init;
 @end
 

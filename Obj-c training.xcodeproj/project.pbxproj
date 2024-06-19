@@ -25,6 +25,11 @@
 		0B7BA8642C2023B700FD2877 /* Breed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8632C2023B700FD2877 /* Breed.m */; };
 		0B7BA8682C2084CA00FD2877 /* BreedDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8672C2084CA00FD2877 /* BreedDetails.m */; };
 		0B7BA86F2C219DEC00FD2877 /* IViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA86E2C219DEC00FD2877 /* IViewController.swift */; };
+		0B7BA8752C22C26D00FD2877 /* VSDSDataSource.h in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8722C22BDE600FD2877 /* VSDSDataSource.h */; };
+		0B7BA8782C22C2EB00FD2877 /* VSDSDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8772C22C2EB00FD2877 /* VSDSDataSource.m */; };
+		0B7BA87C2C22C37100FD2877 /* VSDSTestCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA87B2C22C37100FD2877 /* VSDSTestCells.swift */; };
+		0B7BA8812C22C4F100FD2877 /* VSDSConfigurableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8802C22C4F100FD2877 /* VSDSConfigurableCell.m */; };
+		0B7BA8822C22C59300FD2877 /* VSDSConfigurableCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA87F2C22C40500FD2877 /* VSDSConfigurableCell.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		0B7BA8672C2084CA00FD2877 /* BreedDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreedDetails.m; sourceTree = "<group>"; };
 		0B7BA86B2C219A4B00FD2877 /* Obj-c training-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Obj-c training-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B7BA86E2C219DEC00FD2877 /* IViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IViewController.swift; sourceTree = "<group>"; };
+		0B7BA8722C22BDE600FD2877 /* VSDSDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSDSDataSource.h; sourceTree = "<group>"; };
+		0B7BA8772C22C2EB00FD2877 /* VSDSDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSDSDataSource.m; sourceTree = "<group>"; };
+		0B7BA87B2C22C37100FD2877 /* VSDSTestCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSDSTestCells.swift; sourceTree = "<group>"; };
+		0B7BA87F2C22C40500FD2877 /* VSDSConfigurableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSDSConfigurableCell.h; sourceTree = "<group>"; };
+		0B7BA8802C22C4F100FD2877 /* VSDSConfigurableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSDSConfigurableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +102,8 @@
 		0B7BA8252C1B38D400FD2877 /* Obj-c training */ = {
 			isa = PBXGroup;
 			children = (
-				0B7BA86E2C219DEC00FD2877 /* IViewController.swift */,
+				0B7BA8842C23143600FD2877 /* Swift */,
+				0B7BA8702C22BD9900FD2877 /* TableViewDS */,
 				0B7BA86A2C219A3D00FD2877 /* Headers */,
 				0B7BA85A2C20117C00FD2877 /* Services */,
 				0B7BA8582C1F0BAD00FD2877 /* ViewControllers */,
@@ -207,6 +218,26 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		0B7BA8702C22BD9900FD2877 /* TableViewDS */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA8722C22BDE600FD2877 /* VSDSDataSource.h */,
+				0B7BA8772C22C2EB00FD2877 /* VSDSDataSource.m */,
+				0B7BA87F2C22C40500FD2877 /* VSDSConfigurableCell.h */,
+				0B7BA8802C22C4F100FD2877 /* VSDSConfigurableCell.m */,
+			);
+			path = TableViewDS;
+			sourceTree = "<group>";
+		};
+		0B7BA8842C23143600FD2877 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				0B7BA86E2C219DEC00FD2877 /* IViewController.swift */,
+				0B7BA87B2C22C37100FD2877 /* VSDSTestCells.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,6 +308,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7BA8822C22C59300FD2877 /* VSDSConfigurableCell.h in Sources */,
+				0B7BA8752C22C26D00FD2877 /* VSDSDataSource.h in Sources */,
+				0B7BA87C2C22C37100FD2877 /* VSDSTestCells.swift in Sources */,
 				0B7BA82E2C1B38D500FD2877 /* ViewController.m in Sources */,
 				0B7BA8462C1DD71100FD2877 /* ViewColorModel.m in Sources */,
 				0B7BA8282C1B38D500FD2877 /* AppDelegate.m in Sources */,
@@ -288,10 +322,12 @@
 				0B7BA8402C1C956500FD2877 /* UIViewAutoLayout.h in Sources */,
 				0B7BA86F2C219DEC00FD2877 /* IViewController.swift in Sources */,
 				0B7BA8542C1EF6C700FD2877 /* MyCell.m in Sources */,
+				0B7BA8812C22C4F100FD2877 /* VSDSConfigurableCell.m in Sources */,
 				0B7BA85E2C2012C200FD2877 /* NetworkServiceImpl.m in Sources */,
 				0B7BA84E2C1EDEA700FD2877 /* TableViewDataSource.m in Sources */,
 				0B7BA8392C1B38D500FD2877 /* main.m in Sources */,
 				0B7BA84A2C1EDDF400FD2877 /* TableViewController.m in Sources */,
+				0B7BA8782C22C2EB00FD2877 /* VSDSDataSource.m in Sources */,
 				0B7BA8622C20235A00FD2877 /* BreedsArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
