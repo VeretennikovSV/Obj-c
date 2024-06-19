@@ -108,14 +108,7 @@ final class VSDSTestCellTwo: VSDSConfigurableCell<UITableViewCell> {
 - (instancetype) initWithConfigureContext:(void(^)(Object _Nonnull cell))configureContext;
 ```
 
-##### 1. Ячейка без кастомной высоты и касания:
-``` Swift
-let defaultCellWithAutomaticHeightWithoutTap = VSDSTestCellFour { cell in
-    guard let cell = cell as? VSDSTestCellFour else { return }
-    cell.testConfigFunc(color: .green, string: "Default cell without tap", stringTwo: "DEFAULT??")
-}
-```
-##### 2. Ячейка без кастомной высоты с касанием:
+##### 1. Ячейка без кастомной высоты с касанием:
 ``` Swift
 let cellWithoutHeightWithTap = VSDSTestCell {  cell in
     guard let cell = cell as? VSDSTestCell else { return }
@@ -125,14 +118,14 @@ let cellWithoutHeightWithTap = VSDSTestCell {  cell in
     print(cell.vsdsReuseIdentifier, " has been tapped")
 }
 ```
-##### 3. Ячейка с кастомной высотой без касания:
+##### 2. Ячейка с кастомной высотой без касания:
 ``` Swift
 let cellWithoutTapWithCustomHeight = VSDSTestCellTwo(height: 30) { cell in
     guard let cell = cell as? VSDSTestCellTwo else { return }
     cell.testConfigFunc(color: .brown, string: "Custom height no tap", stringTwo: "TAP? NO")
 }
 ```
-##### 4. Ячейка с кастомной высотой с касанием:
+##### 3. Ячейка с кастомной высотой с касанием:
 ``` Swift
 let cellWithCustomHeightWithTap = VSDSTestCellThree(height: 100) { cell in
     guard let cell = cell as? VSDSTestCellThree else { return }
@@ -142,6 +135,13 @@ let cellWithCustomHeightWithTap = VSDSTestCellThree(height: 100) { cell in
     print(cell.vsdsReuseIdentifier, " has been tapped")
     let screen = TableViewController()
     self.navigationController?.pushViewController(screen, animated: true)
+}
+```
+##### 4. Ячейка без кастомной высоты и касания:
+``` Swift
+let defaultCellWithAutomaticHeightWithoutTap = VSDSTestCellFour { cell in
+    guard let cell = cell as? VSDSTestCellFour else { return }
+    cell.testConfigFunc(color: .green, string: "Default cell without tap", stringTwo: "DEFAULT??")
 }
 ```
 #### После инициализации ячеек
