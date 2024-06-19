@@ -144,12 +144,14 @@ let cellWithCustomHeightWithTap = VSDSTestCellThree(height: 100) { cell in
     self.navigationController?.pushViewController(screen, animated: true)
 }
 ```
-
 #### После инициализации ячеек
 
 ``` Swift
 vsdsDataSource?.appending([cellWithoutHeightWithTap, cellWithoutTapWithCustomHeight, cellWithCustomHeightWithTap, defaultCellWithAutomaticHeightWithoutTap])
 tableView.reloadData()
 ```
+
+Результат -
+<img width="204" alt="Screenshot 2024-06-19 at 20 40 23" src="https://github.com/VeretennikovSV/Obj-c/assets/101358567/eedffc4f-d0a6-427b-bf29-a6095a133253">
 ___
 # ВСЕ
