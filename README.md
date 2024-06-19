@@ -99,6 +99,15 @@ final class VSDSTestCellTwo: VSDSConfigurableCell<UITableViewCell> {
 #### 3. Добавить ячейки в ДС.
 
 ##### Есть 4 способа создать вашу ячейку в зависимости от требований:
+
+``` Objective-C
+
+- (instancetype) initWithHeight:(nullable NSNumber *)height andConfigureContext:(void(^)(Object _Nonnull cell))configureContext onDidTap:(void(^)(Object _Nonnull cell))onDidTap;
+- (instancetype) initWithHeight:(nullable NSNumber *)height andConfigureContext:(void(^)(Object _Nonnull cell))configureContext;
+- (instancetype) initWithConfigureContext:(void(^)(Object _Nonnull cell))configureContext onDidTap:(void(^)(Object _Nonnull cell))onDidTap;
+- (instancetype) initWithConfigureContext:(void(^)(Object _Nonnull cell))configureContext;
+```
+
 ##### 1. Ячейка без кастомной высоты и касания:
 ``` Swift
 let defaultCellWithAutomaticHeightWithoutTap = VSDSTestCellFour { cell in
