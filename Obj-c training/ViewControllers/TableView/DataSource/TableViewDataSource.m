@@ -6,16 +6,19 @@
 //
 
 #import "TableViewDataSource.h"
+#import "NetworkServiceImpl.h"
+#import "BreedsArray.h"
+#import "Breed.h"
 #import "MyCell.h"
 
 @interface TableViewDataSource ()
-@property (nonatomic, copy) NSMutableArray<SomeCellValue *> * cells;
+@property (nonatomic, copy) NSMutableArray<Breed *> * cells;
 @end
 
 @implementation TableViewDataSource
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath { 
     MyCell * tableViewCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    SomeCellValue * cellData = self.cells[indexPath.item];
+    Breed * cellData = self.cells[indexPath.item];
     [tableViewCell initWithCellData:cellData onDidTap:self.onCellSelected];
     return tableViewCell;
 }
@@ -28,17 +31,17 @@
     return UITableViewAutomaticDimension;
 }
 
-- (instancetype)init
-{
+- (instancetype)initWithTableView:(UITableView *)tableView {
     self = [super init];
-    NSMutableArray<SomeCellValue *> * array = [[NSMutableArray alloc] initWithObjects:
-                                            [[SomeCellValue alloc] initWithText:@"Test1" position:1],
-                                            [[SomeCellValue alloc] initWithText:@"Test2" position:2],
-                                            [[SomeCellValue alloc] initWithText:@"Test3" position:3],
-                                            [[SomeCellValue alloc] initWithText:@"Test4" position:4], nil];
-
     if (self) {
-        self.cells = [[NSMutableArray alloc] initWithArray:array];
+        _tableView = tableView;
+        _cells = [NSMutableArray array];
+        _networkService = [[NetworkServiceImpl<BreedsArray *> alloc] init];
+        [self.networkService fetchDataFromUrl:@"https://catfact.ninja/breeds" completion:^(BreedsArray * model) {
+            __weak typeof(self) weak = self;
+            weak.cells = model.data;
+            [weak.tableView reloadData];
+        }];
     }
     return self;
 }

@@ -7,13 +7,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SomeCellValue.h"
+#import "Breed.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCell : UITableViewCell
-@property (nonatomic, nullable) void (^onDidTap)(SomeCellValue * cell);
+@property (nonatomic, nullable) void (^onDidTap)(Breed * cell);
 
-- (void) initWithCellData:(SomeCellValue *)cellData onDidTap:(void(^)(SomeCellValue * cell))onDidTap;
+- (void) initWithCellData:(Breed *)cellData onDidTap:(void(^)(Breed * cell))onDidTap;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,12 +7,22 @@
 
 #import "MyCell.h"
 #import "UIViewAutoLayout.h"
+#import "Breed.h"
+#import <objc/runtime.h>
 
 @interface MyCell ()
-@property (nonatomic, assign) SomeCellValue * cellData;
+@property (atomic, strong) UIStackView * stack;
+@property (nonatomic, assign) Breed * cellData;
 @end
 
 @implementation MyCell
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    for (UIView * view in self.stack.arrangedSubviews) {
+        [view removeFromSuperview];
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -29,36 +39,59 @@
 }
 
 - (void)setViews {
-    UILabel * label = [[UILabel alloc] init];
-    UILabel * countLabel = [[UILabel alloc] init];
-    UIStackView * stack = [[UIStackView alloc] init];
-    label.font = [UIFont systemFontOfSize:30];
+    NSMutableArray<UILabel *> * subviews = [NSMutableArray array];
+//    breed;
+//    country;
+//    origin;
+//    coat;
+//    pattern;
 
-    stack.axis = UILayoutConstraintAxisHorizontal;
-    stack.spacing = 16;
+    if (self.cellData.origin) {
+        UILabel * label = [[UILabel alloc] init];
+        label.text = self.cellData.origin;
+        [subviews addObject: label];
+    }
+    if (self.cellData.breed) {
+        UILabel * label = [[UILabel alloc] init];
+        label.text = self.cellData.breed;
+        [subviews addObject: label];
+    }
+    if (self.cellData.country) {
+        UILabel * label = [[UILabel alloc] init];
+        label.text = self.cellData.country;
+        [subviews addObject: label];
+    }
+    if (self.cellData.coat) {
+        UILabel * label = [[UILabel alloc] init];
+        label.text = self.cellData.coat;
+        [subviews addObject: label];
+    }
+    if (self.cellData.pattern) {
+        UILabel * label = [[UILabel alloc] init];
+        label.text = self.cellData.pattern;
+        [subviews addObject: label];
+    }
 
-    label.text = self.cellData.text;
-    NSString * stringValue = [[NSString alloc ] initWithFormat:@"%i", self.cellData.position];
-    countLabel.text = stringValue;
-
-    [stack autoLayoutWith:self.contentView];
-    stack.alignment = UIStackViewAlignmentBottom;
-
-    [NSLayoutConstraint activateConstraints:@[
-        [NSLayoutConstraint constraintWithItem:stack attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView.safeAreaLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0],
-        [NSLayoutConstraint constraintWithItem:stack attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView.safeAreaLayoutGuide attribute:NSLayoutAttributeLeading multiplier:1 constant:0],
-        [NSLayoutConstraint constraintWithItem:stack attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView.safeAreaLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0]
-    ]];
-
-    [stack addArrangedSubview: label];
-    [stack addArrangedSubview:countLabel];
+    for (UILabel * label in subviews) {
+        label.font = [UIFont systemFontOfSize:12 weight:UIFontWeightSemibold];
+        [self.stack addArrangedSubview:label];
+    }
 }
 
-- (void)initWithCellData:(SomeCellValue *)cellData onDidTap:(void (^__weak)(SomeCellValue *__weak))onDidTap {
+- (void) setStackOnSubview {
+    self.stack.axis = UILayoutConstraintAxisVertical;
+    self.stack.spacing = 4;
+    self.stack.alignment = UIStackViewAlignmentLeading;
+    [self.stack setToEdgesOf:self.contentView];
+}
+
+- (void)initWithCellData:(Breed *)cellData onDidTap:(void (^__weak)(Breed *__weak))onDidTap {
     if (self) {
-        self.cellData = cellData;
+        _stack = [[UIStackView alloc] init];
+        _cellData = cellData;
         [self setViews];
-        self.onDidTap = onDidTap;
+        _onDidTap = onDidTap;
+        [self setStackOnSubview];
     }
 }
 

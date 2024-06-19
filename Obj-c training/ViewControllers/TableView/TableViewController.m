@@ -9,6 +9,7 @@
 #import "UIViewAutoLayout.h"
 #import "MyCell.h"
 #import "ViewController.h"
+#import "BreedDetails.h"
 
 @interface TableViewController ()
 @property (nonatomic, strong) UITableView * tableView;
@@ -38,14 +39,14 @@
 {
     self = [super init];
     if (self) {
-        self.tableView = [[UITableView alloc] init];
+        _tableView = [[UITableView alloc] init];
         [self.tableView registerClass:MyCell.class forCellReuseIdentifier:@"cell"];
         
-        self.dataSource = [[TableViewDataSource alloc] init];
-        self.dataSource.onCellSelected = ^(SomeCellValue * cell) {
+        _dataSource = [[TableViewDataSource alloc] initWithTableView:self.tableView];
+        self.dataSource.onCellSelected = ^(Breed * cell) {
             __weak typeof(self) weakSelf = self;
-            UIViewController * vc = [[ViewController alloc] init];
-            [weakSelf presentViewController:vc animated:true completion:nil];
+            BreedDetails * detailsViewController = [[BreedDetails alloc] initWithBreed:cell];
+            [weakSelf.navigationController pushViewController:detailsViewController animated:true];
         };
         self.tableView.dataSource = self.dataSource;
         self.tableView.delegate = self.dataSource;

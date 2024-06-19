@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Obj_c_training-Swift.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,11 @@
     UIWindow * window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [self setWindow: window];
 
+    IViewController * viewController = [[IViewController alloc] initWithName:@"Sergei"];
+    [viewController printSomeShitsInteger:1 string:@"Hello"];
     UIViewController * rootViewController = [[ViewController alloc] init];
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    UINavigationBarAppearance * appearance = [[UINavigationBarAppearance alloc] init];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
