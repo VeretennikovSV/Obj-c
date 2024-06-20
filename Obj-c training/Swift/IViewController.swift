@@ -11,6 +11,7 @@ import UIKit
 @objc class IViewController: UIViewController {
     @objc var name: String = "Sergei"
     private var gesture: UITapGestureRecognizer!
+    
     private lazy var tableView = UITableView()
     private lazy var vsdsDataSource = VSDSDataSource(tableView: tableView)
 
@@ -35,8 +36,6 @@ import UIKit
     @objc
     func swiftUseObjc() {
         let service = NetworkServiceImpl<BreedsArray>()
-        service.fetchData(fromUrl: "https://catfact.ninja/breeds") { breeds in
-        }
     }
 
     @objc 

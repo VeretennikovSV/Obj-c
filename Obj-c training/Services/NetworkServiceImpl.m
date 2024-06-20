@@ -12,15 +12,13 @@
 
 @implementation NetworkServiceImpl
 
-- (void)fetchDataFromUrl:(NSString *)urlString completion:(void (^)(id _Nullable))completion {
+- (void) fetchDataForClass:(Class<Decodable>)type urlString:(NSString *)urlString completion:(void (^)(id model))completion {
     NSURL * url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:url];
     NSURLSessionDataTask * dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
         if (data) {
-            BreedsArray * breeds = [BreedsArray initWithData:data error:error];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(breeds);
-            });
+            id result = [type initFromData: data error:error];
+            completion(result);
         }
     }];
     [dataTask resume];

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TableViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (nonatomic, nullable) void (^onCellSelected)(Breed * cell);
-@property (nonatomic) NetworkServiceImpl<BreedsArray *> * networkService;
+@property (nonatomic) NetworkServiceImpl * networkService;
 - (instancetype _Nonnull) initWithTableView:(UITableView *)tableView;
 @end
 

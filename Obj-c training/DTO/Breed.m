@@ -10,27 +10,19 @@
 
 @implementation Breed
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self) {
-        [self setValuesForKeysWithDictionary:dictionary];
-    }
-    return self;
-}
-
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Coat - %@\nPattern - %@\nOrigin - %@\nCountry - %@\nBreed - %@", self.coat, self.pattern, self.origin, self.country, self.breed];
 }
 
-+ (NSArray<Breed *> *)breedsFromJSONArray:(NSArray *)jsonArray {
-    NSMutableArray<Breed *> * breedsArray = [NSMutableArray array];
++ (instancetype)initFromData:(NSData *)data error:(NSError *)error {
+    Breed * breed = [[Breed alloc] init];
+    NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    if (error) {
 
-    for (NSDictionary *dict in jsonArray) {
-        Breed * breed = [[Breed alloc] initWithDictionary:dict];
-        [breedsArray addObject:breed];
     }
-    return breedsArray;
+    [breed setValuesForKeysWithDictionary:json];
+    return breed;
 }
 
 @end

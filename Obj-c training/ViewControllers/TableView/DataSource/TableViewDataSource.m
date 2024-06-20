@@ -37,11 +37,13 @@
     if (self) {
         _tableView = tableView;
         _cells = [NSMutableArray array];
-        _networkService = [[NetworkServiceImpl<BreedsArray *> alloc] init];
-        [self.networkService fetchDataFromUrl:@"https://catfact.ninja/breeds" completion:^(BreedsArray * model) {
+        _networkService = [[NetworkServiceImpl alloc] init];
+        [self.networkService fetchDataForClass:BreedsArray.class urlString:@"https://catfact.ninja/breeds" completion:^(BreedsArray * _Nullable model) {
             __weak typeof(self) weak = self;
             weak.cells = model.data;
-            [weak.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weak.tableView reloadData];
+            });
         }];
     }
     return self;

@@ -70,6 +70,7 @@
 		0B7BA87B2C22C37100FD2877 /* VSDSTestCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSDSTestCells.swift; sourceTree = "<group>"; };
 		0B7BA87F2C22C40500FD2877 /* VSDSConfigurableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSDSConfigurableCell.h; sourceTree = "<group>"; };
 		0B7BA8802C22C4F100FD2877 /* VSDSConfigurableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSDSConfigurableCell.m; sourceTree = "<group>"; };
+		0B7BA8852C24004100FD2877 /* Decodable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decodable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +198,7 @@
 				0B7BA85B2C20118C00FD2877 /* NetworkService.h */,
 				0B7BA85C2C20128400FD2877 /* NetworkServiceImpl.h */,
 				0B7BA85D2C2012C200FD2877 /* NetworkServiceImpl.m */,
+				0B7BA8852C24004100FD2877 /* Decodable.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";

@@ -7,6 +7,7 @@
 
 #import "NetworkService.h"
 #import <UIKit/UIKit.h>
+#import "Decodable.h"
 
 #ifndef NetworkServiceImpl_h
 #define NetworkServiceImpl_h
@@ -14,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkServiceImpl<Object> : NSObject
-- (void) fetchDataFromUrl:(NSString *)urlString completion:(void (^)(_Nullable Object model))completion;
+- (void) fetchDataForClass:(Class<Decodable>)type urlString:(NSString *)urlString completion:(void (^)(_Nullable Object model))completion;
 - (instancetype) init;
 @end
 

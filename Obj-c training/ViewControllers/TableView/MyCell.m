@@ -40,12 +40,6 @@
 
 - (void)setViews {
     NSMutableArray<UILabel *> * subviews = [NSMutableArray array];
-//    breed;
-//    country;
-//    origin;
-//    coat;
-//    pattern;
-
     if (self.cellData.origin) {
         UILabel * label = [[UILabel alloc] init];
         label.text = self.cellData.origin;
