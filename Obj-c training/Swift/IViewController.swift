@@ -55,6 +55,8 @@ import UIKit
         } onDidTap: { cell in
             guard let cell = cell as? VSDSTestCell else { return }
             print(cell.vsdsReuseIdentifier, " has been tapped")
+            let vc = ViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
 
         let cellWithoutTapWithCustomHeight = VSDSTestCellTwo(height: 30) { cell in

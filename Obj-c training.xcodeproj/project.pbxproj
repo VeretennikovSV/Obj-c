@@ -30,6 +30,7 @@
 		0B7BA87C2C22C37100FD2877 /* VSDSTestCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA87B2C22C37100FD2877 /* VSDSTestCells.swift */; };
 		0B7BA8812C22C4F100FD2877 /* VSDSConfigurableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8802C22C4F100FD2877 /* VSDSConfigurableCell.m */; };
 		0B7BA8822C22C59300FD2877 /* VSDSConfigurableCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA87F2C22C40500FD2877 /* VSDSConfigurableCell.h */; };
+		0B7BA8882C241E9700FD2877 /* ErrorsThrower.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7BA8872C241E9700FD2877 /* ErrorsThrower.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		0B7BA87F2C22C40500FD2877 /* VSDSConfigurableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSDSConfigurableCell.h; sourceTree = "<group>"; };
 		0B7BA8802C22C4F100FD2877 /* VSDSConfigurableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSDSConfigurableCell.m; sourceTree = "<group>"; };
 		0B7BA8852C24004100FD2877 /* Decodable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decodable.h; sourceTree = "<group>"; };
+		0B7BA8862C24164800FD2877 /* ErrorsThrower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorsThrower.h; sourceTree = "<group>"; };
+		0B7BA8872C241E9700FD2877 /* ErrorsThrower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorsThrower.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				0B7BA85C2C20128400FD2877 /* NetworkServiceImpl.h */,
 				0B7BA85D2C2012C200FD2877 /* NetworkServiceImpl.m */,
 				0B7BA8852C24004100FD2877 /* Decodable.h */,
+				0B7BA8862C24164800FD2877 /* ErrorsThrower.h */,
+				0B7BA8872C241E9700FD2877 /* ErrorsThrower.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				0B7BA8752C22C26D00FD2877 /* VSDSDataSource.h in Sources */,
 				0B7BA87C2C22C37100FD2877 /* VSDSTestCells.swift in Sources */,
 				0B7BA82E2C1B38D500FD2877 /* ViewController.m in Sources */,
+				0B7BA8882C241E9700FD2877 /* ErrorsThrower.m in Sources */,
 				0B7BA8462C1DD71100FD2877 /* ViewColorModel.m in Sources */,
 				0B7BA8282C1B38D500FD2877 /* AppDelegate.m in Sources */,
 				0B7BA8512C1EF34400FD2877 /* SomeCellValue.m in Sources */,

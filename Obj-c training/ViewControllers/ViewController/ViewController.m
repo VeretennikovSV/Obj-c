@@ -9,6 +9,7 @@
 #import "UIViewAutoLayout.h"
 #import "ViewColorModel.h"
 #import "TableViewController.h"
+#import "ErrorsThrower.h"
 
 #define s1Constant ((CGFloat) 4)
 #define s2Constant ((CGFloat) 8)
@@ -23,10 +24,12 @@
 @property UITextField * greenTextField;
 @property UITextField * blueTextField;
 @property UIView * redrawColorView;
+@property ErrorsThrower * errorsThrower;
 @property (nonatomic, strong) void (^completion)(BOOL success);
 
 @property ViewColorModel * colorManager;
 @property (nonatomic, copy) int (^sumOf)(int first, int second);
+
 - (int)returnSumFromFun:(int(^)(int first, int second))sum;
 @end
 
@@ -40,8 +43,9 @@
 {
     self = [super init];
     if (self) {
+        _errorsThrower = [[ErrorsThrower alloc] init];
         self.colorManager = [[ViewColorModel alloc] initWithRed:0.4 green:0.2 blue:1];
-
+        
         self.completion = ^(BOOL success) {
             __weak typeof(self) weakSelf = self;
             [weakSelf.redrawColorView setBackgroundColor:weakSelf.colorManager.color];
@@ -147,12 +151,25 @@
 
 - (void) onTap {
     [self.view endEditing:true];
-    UIViewController * controller = [[TableViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:true];
+    NSError * error = nil;
+    NSString * result = [self.errorsThrower methodWithError:&error shouldThrow:NO];
+    if (error) {
+        NSLog(@"%@, %i", result, error.code); //BAD
+    } else {
+        NSLog(@"%@", result); // Good
+    }
 }
 
 - (void) endEditing {
     [self.view endEditing:true];
+    NSString * result;
+    @try {
+        result = [self.errorsThrower methodWithException:NO];
+    } @catch (NSException *exception) {
+        result = exception.name;
+    } @finally {
+        NSLog(@"Result of method usage - %@", result);
+    }
 }
 
 - (void) setTextFieldConstraints {
